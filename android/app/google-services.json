@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "308079529145",
+    "project_id": "secciona-1aaea",
+    "storage_bucket": "secciona-1aaea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:308079529145:android:4368c0a984cd4537a2df68",
+        "android_client_info": {
+          "package_name": "com.example.neflis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "308079529145-78bc194lik4g9289c6t8oejok1g2sfsm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBU3RYRoPXnTjcSfK1mjGzdJtkhPvosy3k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "308079529145-78bc194lik4g9289c6t8oejok1g2sfsm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
