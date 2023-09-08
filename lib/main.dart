@@ -1,8 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:neflis/add.dart';
+import 'package:neflis/estrenos.dart';
 import 'package:neflis/firebase_options.dart';
 import 'package:neflis/read.dart';
+import 'package:neflis/realtime.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -51,7 +53,7 @@ class MainApp extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const GetPelicula('v3yAVTnhpBOcoTM6YN9V'),
+                const GetPelicula('55tLU5MvyUoTEFgnVa4n'),
                 // Container(
                 //   decoration: const BoxDecoration(
                 //     image: DecorationImage(
@@ -96,21 +98,8 @@ class MainApp extends StatelessWidget {
                         ?.copyWith(color: Colors.white),
                   ),
                 ),
-                const SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
-                    child: Row(
-                      children: [
-                        Previews(),
-                        Previews(),
-                        Previews(),
-                        Previews(),
-                      ],
-                    ),
-                  ),
-                )
+                Estrenos(),
+                SizedBox(height: 900, child: MoviesList()),
               ],
             ),
           )),
@@ -119,18 +108,19 @@ class MainApp extends StatelessWidget {
 }
 
 class Previews extends StatelessWidget {
+  final String image;
   const Previews({
     super.key,
+    required this.image,
   });
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(3.5),
+    return Padding(
+      padding: const EdgeInsets.all(3.5),
       child: CircleAvatar(
         radius: 51,
-        foregroundImage: NetworkImage(
-            'https://es.web.img3.acsta.net/r_1280_720/medias/nmedia/18/89/70/21/20062737.jpg'),
+        foregroundImage: NetworkImage(image),
       ),
     );
   }
