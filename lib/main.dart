@@ -1,10 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:neflis/add.dart';
+import 'package:neflis/categories.dart';
 import 'package:neflis/estrenos.dart';
 import 'package:neflis/firebase_options.dart';
 import 'package:neflis/read.dart';
-import 'package:neflis/realtime.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -54,16 +55,6 @@ class MainApp extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const GetPelicula('55tLU5MvyUoTEFgnVa4n'),
-                // Container(
-                //   decoration: const BoxDecoration(
-                //     image: DecorationImage(
-                //       fit: BoxFit.cover,
-                //       image: NetworkImage(
-                //           'https://es.web.img3.acsta.net/r_1280_720/medias/nmedia/18/89/70/21/20062737.jpg'),
-                //     ),
-                //   ),
-                //   height: 500,
-                // ),
                 const SizedBox(
                   height: 30,
                 ),
@@ -88,21 +79,42 @@ class MainApp extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Text(
-                    'Previews',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headlineSmall
-                        ?.copyWith(color: Colors.white),
-                  ),
-                ),
-                Estrenos(),
-                SizedBox(height: 900, child: MoviesList()),
+                const Titles(title: 'Estrenos',),
+                const Estrenos(),
+                const Titles(title: 'Top 10 Guatemala',),
+                const CategoriesList(category: 'Top 10 Guatemala'),
+                const Titles(title: 'Accion',),
+                const CategoriesList(category: 'Accion'),
+                const Titles(title: 'Suspenso',),
+                const CategoriesList(category: 'Suspenso'),
+                const Titles(title: 'Infantiles',),
+                const CategoriesList(category: 'Infantiles'),
+                // const SizedBox(height: 900, child: MoviesList()),
               ],
             ),
           )),
+    );
+  }
+}
+
+class Titles extends StatelessWidget {
+  final String title;
+  const Titles({
+    super.key,
+    required this.title,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      child: Text(
+        title,
+        style: Theme.of(context)
+            .textTheme
+            .headlineSmall
+            ?.copyWith(color: Colors.white),
+      ),
     );
   }
 }
